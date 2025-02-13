@@ -45,6 +45,8 @@ import HomePage from "../pages/Home/HomePage";
 import SendMoney from "../pages/SendMoney/SendMoney";
 import CashOut from "../pages/CashOut/CashOut";
 import Transactions from "../pages/Transactions/transactions";
+import AgentRoute from "./AgentRoute";
+import CashInUser from "../pages/CashInUser/CashInUser";
 
 const router = createBrowserRouter([
   {
@@ -225,6 +227,19 @@ const router = createBrowserRouter([
             <PrivateRoute>
               <Transactions></Transactions>
             </PrivateRoute>
+          </>
+        ),
+      },
+      {
+        path: "/cash-in-user",
+        element: (
+          <>
+            <Helmet>
+              <title>Be Healthy - Transactions</title>
+            </Helmet>
+            <AgentRoute>
+              <CashInUser></CashInUser>
+            </AgentRoute>
           </>
         ),
       },
