@@ -41,6 +41,8 @@ import CreatePost from "../pages/Dashboard/CreatePost/CreatePost";
 import Gallery from "../pages/Gallery/Gallery";
 import Article from "../pages/Article/Article";
 import Support from "../pages/Support/Support";
+import HomePage from "../pages/Home/HomePage";
+import SendMoney from "../pages/Home/SendMoney/SendMoney";
 
 const router = createBrowserRouter([
   {
@@ -88,6 +90,17 @@ const router = createBrowserRouter([
               <title>Be Healthy - Contact</title>
             </Helmet>
             <Support></Support>
+          </>
+        ),
+      },
+      {
+        path: "/homePage",
+        element: (
+          <>
+            <Helmet>
+              <title>Be Healthy - Contact</title>
+            </Helmet>
+            <HomePage></HomePage>
           </>
         ),
       },
@@ -170,6 +183,19 @@ const router = createBrowserRouter([
             </Helmet>
             <PrivateRoute>
               <ReplyMessage></ReplyMessage>
+            </PrivateRoute>
+          </>
+        ),
+      },
+      {
+        path: "/send-money",
+        element: (
+          <>
+            <Helmet>
+              <title>Be Healthy - Send Money</title>
+            </Helmet>
+            <PrivateRoute>
+              <SendMoney></SendMoney>
             </PrivateRoute>
           </>
         ),
