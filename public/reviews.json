@@ -1,0 +1,83 @@
+[
+    {
+      "username": "Sophia Johnson",
+      "occupation": "Software Engineer",
+      "description": "DiscountPro offers amazing deals! The interface is user-friendly, and customer service is quick to respond. Highly recommend.",
+      "rating": 4.8,
+      "date": "2024-11-10",
+      "image": "https://example.com/images/sophia.jpg"
+    },
+    {
+      "username": "Ethan Miller",
+      "occupation": "Graphic Designer",
+      "description": "I found some great discounts on electronics. The delivery was fast, and the quality exceeded my expectations.",
+      "rating": 4.5,
+      "date": "2024-11-12",
+      "image": "https://example.com/images/ethan.jpg"
+    },
+    {
+      "username": "Olivia Martinez",
+      "occupation": "Digital Marketer",
+      "description": "I had an issue with my order, but customer support resolved it quickly. Their professionalism impressed me.",
+      "rating": 4.2,
+      "date": "2024-11-08",
+      "image": "https://example.com/images/olivia.jpg"
+    },
+    {
+      "username": "Liam Brown",
+      "occupation": "Freelance Writer",
+      "description": "DiscountPro is a lifesaver for budget-conscious shoppers. I saved a lot on my recent purchases.",
+      "rating": 4.7,
+      "date": "2024-11-15",
+      "image": "https://example.com/images/liam.jpg"
+    },
+    {
+      "username": "Ava Davis",
+      "occupation": "Teacher",
+      "description": "The variety of products is great, but the checkout process was a bit slow. Still, I love the discounts!",
+      "rating": 4.0,
+      "date": "2024-11-09",
+      "image": "https://example.com/images/ava.jpg"
+    },
+    {
+      "username": "Mason Wilson",
+      "occupation": "Entrepreneur",
+      "description": "DiscountPro helped me stock up on office supplies at unbeatable prices. Will shop here again.",
+      "rating": 4.6,
+      "date": "2024-11-13",
+      "image": "https://example.com/images/mason.jpg"
+    },
+    {
+      "username": "Isabella Taylor",
+      "occupation": "Student",
+      "description": "I love their deals on fashion! Got a beautiful dress at 50% off. Absolutely thrilled!",
+      "rating": 4.9,
+      "date": "2024-11-11",
+      "image": "https://example.com/images/isabella.jpg"
+    },
+    {
+      "username": "Noah Anderson",
+      "occupation": "Photographer",
+      "description": "Great platform for discounted gadgets. However, the tracking system could use some improvement.",
+      "rating": 4.3,
+      "date": "2024-11-14",
+      "image": "https://example.com/images/noah.jpg"
+    },
+    {
+      "username": "Mia Thompson",
+      "occupation": "Chef",
+      "description": "DiscountPro has an impressive range of kitchen tools. The discounts make it irresistible!",
+      "rating": 4.8,
+      "date": "2024-11-16",
+      "image": "https://example.com/images/mia.jpg"
+    },
+    {
+      "username": "James Garcia",
+      "occupation": "Fitness Trainer",
+      "description": "Excellent deals on fitness gear! Highly satisfied with the quality and service.",
+      "rating": 4.7,
+      "date": "2024-11-17",
+      "image": "https://example.com/images/james.jpg"
+    }
+  ]
+  

@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Gruppo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
+
+
+.new_heading_font{
+ 
+    font-family: "Cinzel", serif;
+    font-optical-sizing: auto;
+     font-style: normal;
+  
+}
+
+/* Add this to your CSS file or in a <style> block */
+.text-shadow-strong {
+    text-shadow: 0px 6px 12px rgba(169, 29, 58, 0.8);
+  }
+  
+
+  /* Light Mode */
+body.light-mode {
+    background-color: #fff;
+    color: #333;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Dark Mode */
+  body.dark-mode {
+    background-color: #1a1919;
+    color: #fff;
+    transition: background-color 0.3s ease;
+  }
+
+  .font_header {
+    font-family: "Gruppo", sans-serif;
+    font-weight: 700; /* Bold weight */
+    font-style: normal;
+  }
+
+
+  .font_poppins {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
