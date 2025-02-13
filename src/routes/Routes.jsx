@@ -42,7 +42,8 @@ import Gallery from "../pages/Gallery/Gallery";
 import Article from "../pages/Article/Article";
 import Support from "../pages/Support/Support";
 import HomePage from "../pages/Home/HomePage";
-import SendMoney from "../pages/Home/SendMoney/SendMoney";
+import SendMoney from "../pages/SendMoney/SendMoney";
+import CashOut from "../pages/CashOut/CashOut";
 
 const router = createBrowserRouter([
   {
@@ -196,6 +197,19 @@ const router = createBrowserRouter([
             </Helmet>
             <PrivateRoute>
               <SendMoney></SendMoney>
+            </PrivateRoute>
+          </>
+        ),
+      },
+      {
+        path: "/cash-out",
+        element: (
+          <>
+            <Helmet>
+              <title>Be Healthy - Cash Out</title>
+            </Helmet>
+            <PrivateRoute>
+              <CashOut></CashOut>
             </PrivateRoute>
           </>
         ),

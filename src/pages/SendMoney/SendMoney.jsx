@@ -125,12 +125,12 @@
 
 
 import React, { useState } from "react";
-import { useFirebaseAuth } from "../../../hooks/useAuth";
-import useGetUser from "../../../hooks/useGetUser";
+import { useFirebaseAuth } from "../../hooks/useAuth";
+import useGetUser from "../../hooks/useGetUser";
 import { motion } from "framer-motion";
 import Swal from "sweetalert2";
 import { FaMoneyBillWave, FaPhone } from "react-icons/fa";
-import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const SendMoney = () => {
   const { user } = useFirebaseAuth();
