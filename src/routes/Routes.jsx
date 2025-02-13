@@ -44,6 +44,7 @@ import Support from "../pages/Support/Support";
 import HomePage from "../pages/Home/HomePage";
 import SendMoney from "../pages/SendMoney/SendMoney";
 import CashOut from "../pages/CashOut/CashOut";
+import Transactions from "../pages/Transactions/transactions";
 
 const router = createBrowserRouter([
   {
@@ -210,6 +211,19 @@ const router = createBrowserRouter([
             </Helmet>
             <PrivateRoute>
               <CashOut></CashOut>
+            </PrivateRoute>
+          </>
+        ),
+      },
+      {
+        path: "/transactions",
+        element: (
+          <>
+            <Helmet>
+              <title>Be Healthy - Transactions</title>
+            </Helmet>
+            <PrivateRoute>
+              <Transactions></Transactions>
             </PrivateRoute>
           </>
         ),
