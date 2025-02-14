@@ -19,7 +19,7 @@ import Contact from "../pages/Contact/Contact";
 import Dashboard from "../layouts/Dashboard";
 import UserHome from "../pages/Dashboard/UserHome/UserHome";
 import MyCart from "../pages/Dashboard/MyCart";
-import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
+
 import AddMenuItem from "../pages/Dashboard/AddMenu/AddMenuItem";
 import AdminRoute from "./AdminRoute";
 import ManageItems from "../pages/Dashboard/ManageItems/ManageItems";
@@ -49,6 +49,8 @@ import AgentRoute from "./AgentRoute";
 import CashInUser from "../pages/CashInUser/CashInUser";
 import BalanceRequest from "../pages/BalanceRequest/BalanceRequest";
 import WithdrawRequest from "../pages/WithdrawRequest/WithdrawRequest";
+import AllUsers from "../pages/AllUsers/AllUsers";
+import SingleUserTransaction from "../pages/AllUsers/SingleUserTransaction";
 
 const router = createBrowserRouter([
   {
@@ -151,6 +153,19 @@ const router = createBrowserRouter([
               <title>Be Healthy - Camp Details</title>
             </Helmet>
             <CampDetails></CampDetails>
+          </>
+        ),
+      },
+      {
+        path: "/user-transactions/:email",
+        element: (
+          <>
+            <Helmet>
+              <title>Be Healthy - Camp Details</title>
+            </Helmet>
+            <AdminRoute>
+              <SingleUserTransaction></SingleUserTransaction>
+            </AdminRoute>
           </>
         ),
       },
@@ -268,6 +283,19 @@ const router = createBrowserRouter([
             <AgentRoute>
               <WithdrawRequest></WithdrawRequest>
             </AgentRoute>
+          </>
+        ),
+      },
+      {
+        path: "/all-users",
+        element: (
+          <>
+            <Helmet>
+              <title>Be Healthy - Withdraw Request</title>
+            </Helmet>
+            <AdminRoute>
+              <AllUsers></AllUsers>
+            </AdminRoute>
           </>
         ),
       },
@@ -430,19 +458,7 @@ const router = createBrowserRouter([
         path: "my-booking",
         element: <div>My Booking Page</div>, // Replace with your actual component, e.g., <MyBooking />
       },
-      {
-        path: "all-users",
-        element: (
-          <>
-            <Helmet>
-              <title>Be Healthy - All Users</title>
-            </Helmet>
-            <AdminRoute>
-              <AllUsers></AllUsers>
-            </AdminRoute>
-          </>
-        ),
-      },
+     
       {
         path: "add-a-camp",
         element: (

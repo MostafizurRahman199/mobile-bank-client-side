@@ -16,18 +16,23 @@
 import React from "react";
 import { Navigate, useLocation } from "react-router-dom";
 
-import useUserRole from "../hooks/useUserRole";
+
 import { useFirebaseAuth } from "../hooks/useAuth";
+import useGetUser from "../hooks/useGetUser";
 
 
 const AdminRoute = ({ children }) => {
 
+
   const location = useLocation();
   const { user, loading } = useFirebaseAuth();
-  const {isAdmin, adminLoading} = useUserRole();
+  const {data,isLoading:agentLoading } = useGetUser();
+  
+  
+  const isAgent = data?.accountType === "Admin" ? true : false;
 
   // Show a loading spinner while the authentication state is being resolved
-  if (loading || adminLoading) {
+  if (loading || agentLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-[#5544d9]"></div>
@@ -36,7 +41,7 @@ const AdminRoute = ({ children }) => {
   }
 
   // Redirect to login if no user is authenticated, passing the current location in state
-  if (!user && !isAdmin) {
+  if (!isAgent) {
     return <Navigate to="/login" state={{ from: location.pathname }} replace />;
   }
 
