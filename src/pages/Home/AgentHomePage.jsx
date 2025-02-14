@@ -92,6 +92,7 @@ const AgentHomePage = ({ data }) => {
         {/* Agent Actions */}
         <motion.div className="grid grid-cols-2 md:grid-cols-2 gap-6 mt-6">
           {/* Cash-In for User */}
+        
           <Link to="/cash-in-user">
             <motion.button 
               className="flex flex-col items-center justify-center bg-blue-600 text-white py-5 rounded-xl font-bold shadow-lg hover:bg-blue-700 w-full"
@@ -103,27 +104,30 @@ const AgentHomePage = ({ data }) => {
             </motion.button>
           </Link>
 
-          {/* Request Balance */}
-          <motion.button 
-            onClick={() => handleAgentRequest("Request Balance")}
-            className="flex flex-col items-center justify-center bg-green-600 text-white py-5 rounded-xl font-bold shadow-lg hover:bg-green-700 w-full"
-            whileHover={{ scale: 1.03 }}
-            transition={{ type: "spring", stiffness: 300 }}
-          >
-            <FaUserShield className="text-3xl mb-2" />
-            Request Balance
-          </motion.button>
+          <Link to="/balance-request">
+            <motion.button 
+              className="flex flex-col items-center justify-center bg-green-600 text-white py-5 rounded-xl font-bold shadow-lg hover:bg-green-700 w-full"
+              whileHover={{ scale: 1.03 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <FaCreditCard className="text-3xl mb-2" />
+              Request Balance
+            </motion.button>
+          </Link>
 
-          {/* Withdraw Request */}
-          <motion.button 
-            onClick={() => handleAgentRequest("Withdraw Request")}
-            className="flex flex-col items-center justify-center bg-yellow-600 text-white py-5 rounded-xl font-bold shadow-lg hover:bg-yellow-700 w-full"
-            whileHover={{ scale: 1.03 }}
-            transition={{ type: "spring", stiffness: 300 }}
-          >
-            <FaWallet className="text-3xl mb-2" />
-            Withdraw Request
-          </motion.button>
+
+          <Link to="/withdraw-request">
+            <motion.button 
+              className="flex flex-col items-center justify-center bg-yellow-600 text-white py-5 rounded-xl font-bold shadow-lg hover:bg-yellow-700 w-full"
+              whileHover={{ scale: 1.03 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <FaCreditCard className="text-3xl mb-2" />
+              Withdraw Request
+            </motion.button>
+          </Link>
+
+        
 
           {/* View Transactions */}
           <Link to="/transactions">

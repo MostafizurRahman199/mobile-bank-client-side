@@ -47,6 +47,8 @@ import CashOut from "../pages/CashOut/CashOut";
 import Transactions from "../pages/Transactions/transactions";
 import AgentRoute from "./AgentRoute";
 import CashInUser from "../pages/CashInUser/CashInUser";
+import BalanceRequest from "../pages/BalanceRequest/BalanceRequest";
+import WithdrawRequest from "../pages/WithdrawRequest/WithdrawRequest";
 
 const router = createBrowserRouter([
   {
@@ -239,6 +241,32 @@ const router = createBrowserRouter([
             </Helmet>
             <AgentRoute>
               <CashInUser></CashInUser>
+            </AgentRoute>
+          </>
+        ),
+      },
+      {
+        path: "/balance-request",
+        element: (
+          <>
+            <Helmet>
+              <title>Be Healthy - Balance Request</title>
+            </Helmet>
+            <AgentRoute>
+              <BalanceRequest></BalanceRequest>
+            </AgentRoute>
+          </>
+        ),
+      },
+      {
+        path: "/withdraw-request",
+        element: (
+          <>
+            <Helmet>
+              <title>Be Healthy - Withdraw Request</title>
+            </Helmet>
+            <AgentRoute>
+              <WithdrawRequest></WithdrawRequest>
             </AgentRoute>
           </>
         ),
