@@ -17,7 +17,7 @@ const WithdrawRequest = () => {
     queryKey: ["withdrawRequests", user?.email],
     queryFn: async () => {
       const res = await api.get(`/agent-requests?email=${user?.email}&type=Withdraw Request`);
-      return res.data.requests;
+      return res.data.requests.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)); 
     },
     enabled: !!user?.email,
   });
