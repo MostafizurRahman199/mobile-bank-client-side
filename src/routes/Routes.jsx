@@ -51,6 +51,8 @@ import BalanceRequest from "../pages/BalanceRequest/BalanceRequest";
 import WithdrawRequest from "../pages/WithdrawRequest/WithdrawRequest";
 import AllUsers from "../pages/AllUsers/AllUsers";
 import SingleUserTransaction from "../pages/AllUsers/SingleUserTransaction";
+import AllAgent from "../pages/AIIAgent/AllAgent";
+import SingleAgent from "../pages/AIIAgent/SingleAgent";
 
 const router = createBrowserRouter([
   {
@@ -165,6 +167,32 @@ const router = createBrowserRouter([
             </Helmet>
             <AdminRoute>
               <SingleUserTransaction></SingleUserTransaction>
+            </AdminRoute>
+          </>
+        ),
+      },
+      {
+        path: "/agent-transactions/:email",
+        element: (
+          <>
+            <Helmet>
+              <title>Be Healthy - Camp Details</title>
+            </Helmet>
+            <AdminRoute>
+              <SingleAgent></SingleAgent>
+            </AdminRoute>
+          </>
+        ),
+      },
+      {
+        path: "/all-agents",
+        element: (
+          <>
+            <Helmet>
+              <title>Be Healthy - All Agent</title>
+            </Helmet>
+            <AdminRoute>
+              <AllAgent></AllAgent>
             </AdminRoute>
           </>
         ),

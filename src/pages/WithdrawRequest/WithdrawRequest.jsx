@@ -51,6 +51,8 @@ const WithdrawRequest = () => {
             agentEmail: user?.email,
             requestType: "Withdraw Request",
             amount,
+            agentName : data?.name,
+            agentId:data?._id,
           });
 
           if (response.data.success) {

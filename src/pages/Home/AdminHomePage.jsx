@@ -263,7 +263,7 @@ const AdminHomePage = () => {
   });
 
   return (
-    <div className="max-w-5xl mx-auto bg-gradient-to-br from-[#E3F2FD] to-[#90CAF9] shadow-2xl rounded-3xl p-10 backdrop-blur-lg mt-20">
+    <div className="max-w-5xl mx-auto bg-gradient-to-br from-[#E3F2FD] to-[#90CAF9] shadow-2xl rounded-3xl p-10 backdrop-blur-lg mt-24">
       <motion.div
         className="max-w-6xl mx-auto bg-white shadow-lg rounded-3xl p-8"
         initial={{ opacity: 0, y: 20 }}

@@ -37,6 +37,8 @@ const BalanceRequest = () => {
           const response = await api.post("/agent-request", {
             agentEmail: user?.email,
             requestType: "Request Balance",
+            agentName:data?.name,
+            agentId:data._id,
           });
 
           if (response.data.success) {
