@@ -5,6 +5,7 @@ import { FaUser, FaUnlock, FaLock, FaEye, FaSearch } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { motion } from "framer-motion";
+import Loading from "../../components/Loading/Loading";
 
 const AllUsers = () => {
   const api = useAxiosSecure();
@@ -74,7 +75,7 @@ const AllUsers = () => {
 
         {/* Users Table */}
         {isLoading ? (
-          <p className="text-center text-gray-500">Loading users...</p>
+          <Loading height="screen"></Loading>
         ) : (
           <div className="overflow-x-auto overflow-y-scroll h-[400px]">
             <table className="w-full bg-white shadow-md rounded-lg border border-gray-200">

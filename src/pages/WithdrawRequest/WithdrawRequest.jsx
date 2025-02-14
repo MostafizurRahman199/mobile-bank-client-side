@@ -121,13 +121,8 @@ const WithdrawRequest = () => {
                     <td className="p-3">{req._id}</td>
                     <td className="p-3 font-semibold">{req.amount} Taka</td>
                     <td className="p-3">{new Date(req.createdAt).toLocaleString()}</td>
-                    <td
-                      className={`p-3 font-bold ${
-                        req.status === "Approved" ? "text-green-600" :
-                        req.status === "Rejected" ? "text-red-600" : "text-yellow-600"
-                      }`}
-                    >
-                      {req.status}
+                    <td className={``}>
+                     <span  className={` p-2 rounded-xl ${req.status === "Approve" ? "text-green-600 bg-green-200" : req.status === "Reject" ? "text-red-600 bg-red-200 px-4" : "text-yellow-800 bg-yellow-200"}`}> {req.status}</span>
                     </td>
                   </tr>
                 ))}
