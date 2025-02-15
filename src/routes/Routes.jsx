@@ -37,7 +37,7 @@ const router = createBrowserRouter([
         element: (
           <>
             <Helmet>
-              <title>Be Healthy - Home</title>
+              <title>Mobile Banking - Home</title>
             </Helmet>
             <Login></Login>
           </>
@@ -48,7 +48,7 @@ const router = createBrowserRouter([
         element: (
           <>
             <Helmet>
-              <title>Be Healthy - Contact</title>
+              <title>Mobile Banking - Contact</title>
             </Helmet>
             <Support></Support>
           </>
@@ -59,7 +59,7 @@ const router = createBrowserRouter([
         element: (
           <>
             <Helmet>
-              <title>Be Healthy - Contact</title>
+              <title>Mobile Banking - Contact</title>
             </Helmet>
             <PrivateRoute>
             <HomePage></HomePage>
@@ -72,7 +72,7 @@ const router = createBrowserRouter([
         element: (
           <>
             <Helmet>
-              <title>Be Healthy - Camp Details</title>
+              <title>Mobile Banking - Camp Details</title>
             </Helmet>
             <AdminRoute>
               <SingleUserTransaction></SingleUserTransaction>
@@ -85,7 +85,7 @@ const router = createBrowserRouter([
         element: (
           <>
             <Helmet>
-              <title>Be Healthy - Camp Details</title>
+              <title>Mobile Banking - Camp Details</title>
             </Helmet>
             <AdminRoute>
               <SingleAgent></SingleAgent>
@@ -98,7 +98,7 @@ const router = createBrowserRouter([
         element: (
           <>
             <Helmet>
-              <title>Be Healthy - All Agent</title>
+              <title>Mobile Banking - All Agent</title>
             </Helmet>
             <AdminRoute>
               <AllAgent></AllAgent>
@@ -111,7 +111,7 @@ const router = createBrowserRouter([
         element: (
           <>
             <Helmet>
-              <title>Be Healthy - Balance Request</title>
+              <title>Mobile Banking - Balance Request</title>
             </Helmet>
             <AdminRoute>
               <AdminBalanceRequest></AdminBalanceRequest>
@@ -124,7 +124,7 @@ const router = createBrowserRouter([
         element: (
           <>
             <Helmet>
-              <title>Be Healthy - Withdraw Request</title>
+              <title>Mobile Banking - Withdraw Request</title>
             </Helmet>
             <AdminRoute>
               <AdminWithdrawRequest></AdminWithdrawRequest>
@@ -138,7 +138,7 @@ const router = createBrowserRouter([
         element: (
           <>
             <Helmet>
-              <title>Be Healthy - Register</title>
+              <title>Mobile Banking - Register</title>
             </Helmet>
             <Register />
           </>
@@ -150,7 +150,7 @@ const router = createBrowserRouter([
         element: (
           <>
             <Helmet>
-              <title>Be Healthy - Send Money</title>
+              <title>Mobile Banking - Send Money</title>
             </Helmet>
             <PrivateRoute>
               <SendMoney></SendMoney>
@@ -163,7 +163,7 @@ const router = createBrowserRouter([
         element: (
           <>
             <Helmet>
-              <title>Be Healthy - Cash Out</title>
+              <title>Mobile Banking - Cash Out</title>
             </Helmet>
             <PrivateRoute>
               <CashOut></CashOut>
@@ -176,7 +176,7 @@ const router = createBrowserRouter([
         element: (
           <>
             <Helmet>
-              <title>Be Healthy - Transactions</title>
+              <title>Mobile Banking - Transactions</title>
             </Helmet>
             <PrivateRoute>
               <Transactions></Transactions>
@@ -189,7 +189,7 @@ const router = createBrowserRouter([
         element: (
           <>
             <Helmet>
-              <title>Be Healthy - Transactions</title>
+              <title>Mobile Banking - Transactions</title>
             </Helmet>
             <AgentRoute>
               <CashInUser></CashInUser>
@@ -202,7 +202,7 @@ const router = createBrowserRouter([
         element: (
           <>
             <Helmet>
-              <title>Be Healthy - Balance Request</title>
+              <title>Mobile Banking - Balance Request</title>
             </Helmet>
             <AgentRoute>
               <BalanceRequest></BalanceRequest>
@@ -215,7 +215,7 @@ const router = createBrowserRouter([
         element: (
           <>
             <Helmet>
-              <title>Be Healthy - Withdraw Request</title>
+              <title>Mobile Banking - Withdraw Request</title>
             </Helmet>
             <AgentRoute>
               <WithdrawRequest></WithdrawRequest>
@@ -228,7 +228,7 @@ const router = createBrowserRouter([
         element: (
           <>
             <Helmet>
-              <title>Be Healthy - Withdraw Request</title>
+              <title>Mobile Banking - Withdraw Request</title>
             </Helmet>
             <AdminRoute>
               <AllUsers></AllUsers>
@@ -242,7 +242,7 @@ const router = createBrowserRouter([
         element: (
           <>
             <Helmet>
-              <title>Be Healthy - Login</title>
+              <title>Mobile Banking - Login</title>
             </Helmet>
             <Login />
           </>
@@ -253,7 +253,7 @@ const router = createBrowserRouter([
         element: (
           <>
             <Helmet>
-              <title>Be Healthy - Login</title>
+              <title>Mobile Banking - Login</title>
             </Helmet>
             <PrivateRoute>
               <Profile></Profile>
@@ -266,7 +266,7 @@ const router = createBrowserRouter([
         element: (
           <>
             <Helmet>
-              <title>Be Healthy - Login</title>
+              <title>Mobile Banking - Login</title>
             </Helmet>
             <PrivateRoute>
               <UpdateProfile></UpdateProfile>
@@ -279,7 +279,7 @@ const router = createBrowserRouter([
         element: (
           <>
             <Helmet>
-              <title>Be Healthy - Login</title>
+              <title>Mobile Banking - Login</title>
             </Helmet>
             <PrivateRoute>
               <ReplyMessage></ReplyMessage>
@@ -292,7 +292,7 @@ const router = createBrowserRouter([
         element: (
           <>
             <Helmet>
-              <title>Be Healthy - Login</title>
+              <title>Mobile Banking - Login</title>
             </Helmet>
             <AdminRoute>
               <Message></Message>
@@ -306,7 +306,7 @@ const router = createBrowserRouter([
         element: (
           <>
             <Helmet>
-              <title>Be Healthy - Forgot Password</title>
+              <title>Mobile Banking - Forgot Password</title>
             </Helmet>
             <ForgetPassword />
           </>
@@ -322,7 +322,7 @@ const router = createBrowserRouter([
     element: (
       <>
         <Helmet>
-          <title>Be Healthy - Error</title>
+          <title>Mobile Banking - Error</title>
         </Helmet>
         <ErrorPage />
       </>
