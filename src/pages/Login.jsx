@@ -259,22 +259,7 @@ const Login = () => {
             </div>
           </div>
 
-        <div className="mt-6 flex items-center">
-          <div className="flex-grow border-t border-gray-300"></div>
-          <span className="mx-4 text-gray-500">or</span>
-          <div className="flex-grow border-t border-gray-300"></div>
-        </div>
-
-        <div className="mt-6">
-          {/* <button
-            onClick={handleGoogleSignIn}
-            className="w-full flex items-center justify-center px-4 py-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50"
-          >
-            <FcGoogle className="h-5 w-5 mr-2" />
-            Continue with Google
-          </button> */}
-          <GoogleSignIn title="Login" from={from}></GoogleSignIn>
-        </div>
+     
 
         <p className="mt-2 text-center text-sm text-gray-600">
           Don't have an account?{' '}
