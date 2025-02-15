@@ -40,6 +40,7 @@ const CashInUser = () => {
       const response = await api.post(`/cash-in-user`, {
         agentEmail: user.email,
         userPhone,
+       
         amount: parseFloat(amount),
         pin,
       });
@@ -61,9 +62,9 @@ const CashInUser = () => {
   };
 
   return (
-    <div className="min-h-screen w-10/12 flex justify-center items-center mx-auto px-4 py-12">
+    <div className="min-h-screen w-full md:w-10/12 flex justify-center items-center mx-auto px-4 py-12 mt-12">
       <motion.div 
-        className="w-6/12 mx-auto bg-white shadow-lg rounded-2xl p-6"
+        className="w-full sm:w-8/12 md:w-6/12 mx-auto bg-white shadow-lg rounded-2xl p-6"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}

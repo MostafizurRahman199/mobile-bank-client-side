@@ -5,6 +5,8 @@ import { useFirebaseAuth } from "../../hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
 import { FaMoneyBillWave, FaExchangeAlt, FaCheckCircle, FaTimesCircle, FaUser, FaIdBadge } from "react-icons/fa";
 import { motion } from "framer-motion";
+import Loading from "../../components/Loading/Loading";
+import ErrorPage from "../../components/Error.jsx/ErrorPage";
 
 const Transactions = () => {
   const { user } = useFirebaseAuth();
@@ -12,7 +14,7 @@ const Transactions = () => {
   const email = user?.email;
 
   // Fetch Transactions using TanStack Query
-  const { data: transactions, isLoading, isError } = useQuery({
+  const { data: transactions, isLoading, isError, refetch } = useQuery({
     queryKey: ["transactions", email],
     queryFn: async () => {
       const res = await api.get(`/transactions?email=${email}`);
@@ -21,6 +23,9 @@ const Transactions = () => {
     },
     enabled: !!email, // Prevents query if email is undefined
   });
+
+
+  console.log(transactions);
 
   return (
     <div className="container mx-auto px-4 py-12 mt-12">
@@ -34,18 +39,19 @@ const Transactions = () => {
 
         {/* Loading & Error Handling */}
         {isLoading ? (
-          <p className="text-center text-gray-600">Loading transactions...</p>
+          <Loading height="screen"></Loading>
         ) : isError ? (
-          <p className="text-center text-red-500">Error fetching transactions.</p>
+          <ErrorPage></ErrorPage>
         ) : transactions?.length === 0 ? (
           <p className="text-center text-gray-500">No transactions found.</p>
         ) : (
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto h-[400px] overflow-y-scroll">
             <table className="w-full min-w-[900px] border-collapse bg-white shadow-md rounded-lg">
               <thead>
                 <tr className="bg-[#4335a7] text-white">
                   <th className="p-3 text-left">Transaction ID</th>
                   <th className="p-3 text-left">Type</th>
+                  <th className="p-3 text-left">Sender</th>
                   <th className="p-3 text-left">Recipient</th>
                   <th className="p-3 text-left">Amount</th>
                   <th className="p-3 text-left">Fee</th>
@@ -72,11 +78,17 @@ const Transactions = () => {
                         ) : (
                           <FaMoneyBillWave className="text-green-500 mr-2" />
                         )}
-                        {txn.type || "Not found"}
+                        {txn?.type || "Not found"}
                       </div>
                     </td>
 
                     {/* Recipient */}
+                    <td className="p-3">
+                      <div className="flex items-center">
+                        <FaUser className="text-gray-600 mr-2" />
+                        {txn.senderPhone || "N/A"}
+                      </div>
+                    </td>
                     <td className="p-3">
                       <div className="flex items-center">
                         <FaUser className="text-gray-600 mr-2" />

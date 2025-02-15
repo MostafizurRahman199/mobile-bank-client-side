@@ -31,19 +31,19 @@ const UserHomePage = ({ data }) => {
   const [showBalance, setShowBalance] = useState(false);
 
   return (
-    <div className="container mx-auto px-4 py-12 mt-12">
+    <div className="max-w-5xl mx-auto bg-gradient-to-br from-[#E3F2FD] to-[#90CAF9] shadow-2xl md:rounded-3xl px-2 py-6 md:p-10 backdrop-blur-lg mt-16  md:mt-32">
       <motion.div 
-        className="max-w-5xl mx-auto bg-gradient-to-br from-[#E3F2FD] to-[#90CAF9] shadow-2xl rounded-3xl p-10 backdrop-blur-lg"
+        className="max-w-6xl mx-auto bg-white shadow-lg rounded-3xl p-4 md:p-8"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        <h2 className="text-5xl font-extrabold text-white text-center mb-8">
+        <h2 className="text-2xl md:text-5xl font-extrabold text-[#90CAF9] text-center mb-8">
           Welcome, {data?.name} 🎉
         </h2>
 
         <motion.div 
-                  className="bg-white p-6 rounded-2xl shadow-lg mb-6"
+                  className="bg-gradient-to-br from-[#E3F2FD] to-[#90CAF9] p-6 rounded-2xl shadow-lg mb-6"
                   whileHover={{ scale: 1.03 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
@@ -68,7 +68,7 @@ const UserHomePage = ({ data }) => {
 
 
         {/* User Actions */}
-        <motion.div className="grid grid-cols-2 md:grid-cols-2 gap-6 mt-6">
+        <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
         {/* Balance Card */}
         <BalanceCard 
           label="Account Balance"

@@ -7,6 +7,7 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { motion } from "framer-motion";
 import { FaCheckCircle, FaTimesCircle, FaSearch } from "react-icons/fa";
+import Loading from "../../components/Loading/Loading";
 
 const AdminBalanceRequest = () => {
   const api = useAxiosSecure();
@@ -82,7 +83,7 @@ const AdminBalanceRequest = () => {
 
         {/* Balance Requests Table */}
         {isLoading ? (
-          <p className="text-center text-gray-500">Loading requests...</p>
+          <Loading ></Loading>
         ) : filteredRequests?.length === 0 ? (
           <p className="text-center text-gray-500">No matching requests found.</p>
         ) : (

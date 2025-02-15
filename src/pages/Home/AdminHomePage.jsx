@@ -263,36 +263,36 @@ const AdminHomePage = () => {
   });
 
   return (
-    <div className="max-w-5xl mx-auto bg-gradient-to-br from-[#E3F2FD] to-[#90CAF9] shadow-2xl rounded-3xl p-10 backdrop-blur-lg mt-24">
+    <div className="max-w-5xl mx-auto bg-gradient-to-br from-[#E3F2FD] to-[#90CAF9] shadow-2xl md:rounded-3xl px-2 py-6 md:p-10 backdrop-blur-lg mt-16 md:mt-32">
       <motion.div
         className="max-w-6xl mx-auto bg-white shadow-lg rounded-3xl p-8"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        <h2 className="text-4xl font-bold text-[#1A237E] text-center mb-6">
+        <h2 className="text-2xl md:text-5xl font-extrabold text-[#90CAF9] text-center mb-8">
           Admin Dashboard 
         </h2>
 
         {/* Admin Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center mb-8">
           <StatCard
-            icon={<FaUsers className="text-4xl text-[#1A237E]" />}
+            icon={<FaUsers className="text-xl md:text-4xl text-[#1A237E]" />}
             label="Total Users"
             value={dashboardData?.totalUsers}
           />
           <StatCard
-            icon={<FaUserShield className="text-4xl text-[#1A237E]" />}
+            icon={<FaUserShield className="text-xl md:text-4xl text-[#1A237E]" />}
             label="Total Agents"
             value={dashboardData?.totalAgents}
           />
           <StatCard
-            icon={<FaMoneyBillWave className="text-4xl text-[#1A237E]" />}
+            icon={<FaMoneyBillWave className="text-xl md:text-4xl text-[#1A237E]" />}
             label="System Balance"
             value={`${dashboardData?.totalMoney} Taka`}
           />
           <StatCard
-            icon={<FaExchangeAlt className="text-4xl text-[#1A237E]" />}
+            icon={<FaExchangeAlt className="text-xl md:text-4xl text-[#1A237E]" />}
             label="Earnings"
             value={`${dashboardData?.adminEarnings} Taka`}
           />
@@ -300,7 +300,7 @@ const AdminHomePage = () => {
 
         {/* Quick Links */}
         <h3 className="text-2xl font-bold text-[#1A237E] text-center mt-4 mb-4">Quick Access 🚀</h3>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <QuickLink to="/all-users" icon={<FaUsers className="text-3xl text-[#1A237E]" />} text="All Users" />
           <QuickLink to="/all-agents" icon={<FaUserShield className="text-3xl text-[#1A237E]" />} text="All Agents" />
           <QuickLink to="/balance-requests" icon={<FaMoneyBillWave className="text-3xl text-[#1A237E]" />} text="Balance Requests" />
@@ -314,13 +314,13 @@ const AdminHomePage = () => {
 /** 📌 Card Component for Statistics */
 const StatCard = ({ icon, label, value }) => (
   <motion.div
-    className="p-6 bg-gradient-to-br from-[#E3F2FD] to-[#90CAF9] text-[#1A237E] rounded-xl shadow-lg flex flex-col justify-center items-center "
+    className="p-2 md:p-6 bg-gradient-to-br from-[#E3F2FD] to-[#90CAF9] text-[#1A237E] rounded-xl shadow-lg flex flex-col justify-center items-center "
     whileHover={{ scale: 1.05 }}
     transition={{ duration: 0.3 }}
   >
-    <p className="text-center">{icon}</p>
-    <p className="text-xl font-bold mt-2">{label}</p>
-    <p className="text-lg font-semibold">{value || 0}</p>
+    <p className="text-center text-md">{icon}</p>
+    <p className="text-md  font-bold mt-2">{label}</p>
+    <p className="text-xl font-semibold">{value || 0}</p>
   </motion.div>
 );
 

@@ -165,6 +165,7 @@ const SendMoney = () => {
     try {
       const response = await api.post(`${import.meta.env.VITE_API_BASE_URL}/send-money`, {
         senderEmail: user.email,
+        SenderPhone:user.data,
         recipientPhone: phone,
         amount: parseFloat(amount),
         fee: transactionFee,
@@ -186,9 +187,9 @@ const SendMoney = () => {
   };
 
   return (
-    <div className="min-h-screen w-10/12 flex justify-center items-center mx-auto px-4 py-12">
+    <div className="min-h-screen w-full md:w-10/12 flex justify-center items-center mx-auto px-4 py-12">
       <motion.div 
-        className="w-6/12 mx-auto bg-white shadow-lg rounded-2xl p-6"
+        className="w-full sm:8/12 md:w-6/12 mx-auto bg-white shadow-lg rounded-2xl p-6"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
@@ -222,7 +223,7 @@ const SendMoney = () => {
               placeholder="Enter Amount (Min 50 Taka)"
               className="w-full p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4335a7]"
             />
-            <FaMoneyBillWave className="absolute right-4 top-4 text-green-500 text-lg" />
+           
           </div>
 
           {/* Transaction Fee & Total Amount */}

@@ -5,6 +5,7 @@ import { FaUserShield, FaUnlock, FaLock, FaEye, FaSearch } from "react-icons/fa"
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { motion } from "framer-motion";
+import Loading from "../../components/Loading/Loading";
 
 const AllAgent = () => {
   const api = useAxiosSecure();
@@ -74,7 +75,7 @@ const AllAgent = () => {
 
         {/* Agents Table */}
         {isLoading ? (
-          <p className="text-center text-gray-500">Loading agents...</p>
+          <Loading></Loading>
         ) : (
           <div className="overflow-x-auto h-[400px] overflow-y-scroll">
             <table className="w-full bg-white shadow-md rounded-lg border border-gray-200">

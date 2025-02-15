@@ -4,6 +4,7 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import { FaMoneyBillWave, FaExchangeAlt, FaCheckCircle, FaTimesCircle } from "react-icons/fa";
 import { motion } from "framer-motion";
+import Loading from "../../components/Loading/Loading";
 
 const SingleUserTransaction = () => {
   const { email } = useParams();
@@ -34,7 +35,7 @@ const SingleUserTransaction = () => {
 
         {/* Loading & Error Handling */}
         {isLoading ? (
-          <p className="text-center text-gray-600">Loading transactions...</p>
+         <Loading height="screen"></Loading>
         ) : isError ? (
           <p className="text-center text-red-500">Error fetching transactions.</p>
         ) : transactions?.length === 0 ? (

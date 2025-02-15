@@ -75,7 +75,7 @@ const AllUsers = () => {
 
         {/* Users Table */}
         {isLoading ? (
-          <Loading height="screen"></Loading>
+          <Loading ></Loading>
         ) : (
           <div className="overflow-x-auto overflow-y-scroll h-[400px]">
             <table className="w-full bg-white shadow-md rounded-lg border border-gray-200">
