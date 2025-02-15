@@ -12,7 +12,7 @@ import ApiComponent from "../../API/ApiComponent";
 import Aos from "aos";
 
 
-const ContactForm = ({ name = "", email = "" , flag=false}) => {
+const ContactForm = ({ name = "", email = "" , phone = "" , flag=false}) => {
   const { darkMode } = useDarkMode();
   const {uploadMessage} = ApiComponent()
 
@@ -167,10 +167,11 @@ const ContactForm = ({ name = "", email = "" , flag=false}) => {
             {...register("phone", { required: "Phone number is required" })}
             id="phone"
             type="tel"
-            placeholder="Enter your phone number"
+            // placeholder="Enter your phone number"
             className={`w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#4335A7] ${
               darkMode ? "bg-[#2D2D2D] text-white" : "bg-white text-black"
             }`}
+            // readOnly={!!phone}
           />
           {errors.phone && (
             <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>

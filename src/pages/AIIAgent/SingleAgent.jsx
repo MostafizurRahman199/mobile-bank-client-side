@@ -37,7 +37,7 @@ const SingleAgent = () => {
         ) : transactions?.length === 0 ? (
           <p className="text-center text-gray-500">No transactions found.</p>
         ) : (
-          <div className="overflow-x-auto h-[400px] overflow-x-scroll">
+          <div className="overflow-x-auto h-[400px] overflow-y-scroll">
             <table className="w-full bg-white shadow-md rounded-lg border border-gray-200">
               <thead>
                 <tr className="bg-[#1A237E] text-white">

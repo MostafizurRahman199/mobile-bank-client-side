@@ -35,7 +35,7 @@ const Login = () => {
   const location = useLocation();
 
     // // Access the "from" value safely
-    const from = location.state?.from || "/";
+    const from = location.state?.from || "/homePage";
 
     
     // console.log(location);
@@ -155,7 +155,7 @@ const Login = () => {
       Swal.fire({
         position: "top-center",
         icon: "warning",
-        title: "You Need Admin Approval for login",
+        title: "This account is not Active now, Need Admin Permission",
         showConfirmButton: false,
         timer: 1500
       });

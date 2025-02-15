@@ -6,12 +6,15 @@ import SectionHeading from "../../components/SectionHeading/SectionHeading";
 import ContactForm from "./ContactForm";
 import { useFirebaseAuth } from "../../hooks/useAuth";
 import { useDarkMode } from "../../Context/DarkModeContext";
+import useGetUser from "../../hooks/useGetUser";
 
 
 
 const Contact = ({ flag = false }) => {
   const { user } = useFirebaseAuth();
   const {darkMode} = useDarkMode();
+  const {data:userFromDb} = useGetUser();
+  const phone = userFromDb?.phone;
 
 
   return (
@@ -29,7 +32,7 @@ const Contact = ({ flag = false }) => {
 
       {/* Contact Form */}
       {user ? (
-        <ContactForm flag={flag} name={user.displayName} email={user.email} />
+        <ContactForm flag={flag} name={user.displayName} email={user.email} phone={phone} />
       ) : (
         <ContactForm />
       )}

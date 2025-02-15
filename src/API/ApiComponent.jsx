@@ -111,101 +111,6 @@ const ApiComponent = () => {
 
 
 
-  // menu page
-  //public api call
-  const getMenuData = async () => {
-    try {
-      const response = await apiPublic.get(`/menu`);
-      return handleResponse(response); // Simplified handling
-    } catch (error) {
-      console.error("Error fetching volunteer requests:", error.message);
-      throw new Error(
-        error.response?.data?.message || "Failed to fetch requests"
-      );
-    }
-  };
-
-
-  const getCampData = async () => {
-    try {
-      const response = await apiPublic.get(`/camp`);
-      return handleResponse(response); // Simplified handling
-    } catch (error) {
-      console.error("Error fetching volunteer requests:", error.message);
-      throw new Error(
-        error.response?.data?.message || "Failed to fetch requests"
-      );
-    }
-  };
-
-  // testimonialSlide
-  const getReviews = async () => {
-    try {
-      const response = await apiPublic.get(`/reviews`);
-      return handleResponse(response); // Simplified handling
-    } catch (error) {
-      console.error("Error fetching volunteer requests:", error.message);
-      throw new Error(
-        error.response?.data?.message || "Failed to fetch requests"
-      );
-    }
-  };
-
-  // order card
-  const addToCart = async (cartItem) => {
-    try {
-      const response = await apiPublic.post("/cart", cartItem);
-      return response.data;
-      ata;
-    } catch (error) {
-      console.error("Error adding the item to the cart:", error.message);
-      throw new Error(
-        error.response?.data?.message || "Failed to add the item to the cart."
-      );
-    }
-  };
-
-
-  // order card
-  const joinToCamp = async (data) => {
-    try {
-      const response = await apiPublic.post("/join-camp", data);
-      return response.data;
-    
-    } catch (error) {
-      console.error("Error adding the item to the cart:", error.message);
-      throw new Error(
-        error.response?.data?.message || "Failed to add the item to the cart."
-      );
-    }
-  };
-
-
-
-  const getCart = async (email) => {
-    try {
-      const response = await apiPublic.get(`/cart/${email}`);
-      return handleResponse(response);
-    } catch (error) {
-      console.error("Error fetching volunteer requests:", error.message);
-      throw new Error(
-        error.response?.data?.message || "Failed to fetch requests"
-      );
-    }
-  };
-
-
-  const getRegisterCamp = async (email) => {
-    try {
-      const response = await api.get(`/registered-camps/${email}`);
-      return handleResponse(response);
-    } catch (error) {
-      console.error("Error fetching volunteer requests:", error.message);
-      throw new Error(
-        error.response?.data?.message || "Failed to fetch requests"
-      );
-    }
-  };
 
 
 
@@ -220,77 +125,6 @@ const ApiComponent = () => {
       );
     }
   };
-
-
-  const getJoinCamp = async () => {
-    try {
-      console.log("Hit join api");
-      const response = await api.get(`/join-camps`);
-      return handleResponse(response);
-    } catch (error) {
-      console.error("Error fetching volunteer requests:", error.message);
-      throw new Error(
-        error.response?.data?.message || "Failed to fetch requests"
-      );
-    }
-  };
-
-
-
-  // AdminHome.jsx
-  const adminStats = async (email) => {
-    try {
-      const response = await apiPublic.get(`/admin-stats/${email}`);
-      return handleResponse(response);
-    } catch (error) {
-      console.error("Error fetching volunteer requests:", error.message);
-      throw new Error(
-        error.response?.data?.message || "Failed to fetch requests"
-      );
-    }
-  };
-
-
-
-    const deleteFromCart = async (id) => {
-      try {
-        console.log(id);
-        const response = await apiPublic.delete(`/cart/${id}`);
-        return handleResponse(response);
-      } catch (error) {
-        handleError(error);
-      }
-    };
-
-    const deleteFromJoinCamp = async (id, campId) => {
-      try {
-        console.log(id, campId);
-        const data = {
-          id,
-          campId,
-        }
-        const response = await apiPublic.post(`/deleteFromJoinCamp`, data);
-        return handleResponse(response);
-      } catch (error) {
-        handleError(error);
-      }
-    };
-
-
-    // register page
-    const createUser = async (user) => {
-      try {
-        const response = await apiPublic.post("/users", user);
-      //  console.log(response);
-        return response.data;
-       
-      } catch (error) {
-        console.error("Error adding the item to the cart:", error.message);
-        throw new Error(
-          error.response?.data?.message || "Failed to add the item to the cart."
-        );
-      }
-    };
 
 
 
@@ -324,26 +158,6 @@ const ApiComponent = () => {
     };
 
 
-    const updateConfirmationStatus = async (id, status) => {
-      try {
-
-        const data = {
-          id: id,
-          status: status
-        }
-
-        console.log(data);
-        const response = await api.post("/update-confirmation-status", {data});
-       console.log(response);
-        return response.data;
-       
-      } catch (error) {
-        console.error("Error adding the item to the cart:", error.message);
-        throw new Error(
-          error.response?.data?.message || "Failed to add the item to the cart."
-        );
-      }
-    };
 
 
     // AllUsers.jsx page
@@ -433,29 +247,6 @@ const ApiComponent = () => {
       }
     };
 
- // AllUsers.jsx page
-    const deleteMenuItem = async (id) => {
-      // console.log(id);
-      try {
-        const response = await api.delete(`/menu-item/${id}`);
-        return handleResponse(response);
-      } catch (error) {
-        handleError(error);
-      }
-    };
-
-
-    //ManageCamp.jsx
-    const deleteCampItem = async (id) => {
-      // console.log(id);
-      try {
-        const response = await api.delete(`/camp-item/${id}`);
-        return handleResponse(response);
-      } catch (error) {
-        handleError(error);
-      }
-    };
-
 
     const deleteReplyMessage = async (id) => {
       // console.log(id);
@@ -501,56 +292,6 @@ const ApiComponent = () => {
     };
 
 
-// AllUsers.jsx
-//secure route
-    const updateMenuItem = async (data) => {
-      try {
-       
-        // console.log(data);
-        const response = await api.post("/update-menu-item", data);
-       console.log(response);
-        return response.data;
-       
-       
-      } catch (error) {
-        console.error("Error adding the item to the cart:", error.message);
-        throw new Error(
-          error.response?.data?.message || "Failed to add the item to the cart."
-        );
-      }
-    };
-
-
-    const updateCampItem = async (data) => {
-      try {
-       
-        // console.log(data);
-        const response = await api.post("/update-camp-item", data);
-       console.log(response);
-        return response.data;
-       
-       
-      } catch (error) {
-        console.error("Error adding the item to the cart:", error.message);
-        throw new Error(
-          error.response?.data?.message || "Failed to add the item to the cart."
-        );
-      }
-    };
-
-
-    const uploadMenu = async (data) => {
-      try {
-        console.log(data);
-        const response = await api.post("/upload-menu-item", data);
-        return response.data;
-        } catch (error) {
-          console.error("Error adding the item to the cart:", error.message);
-          throw new Error(
-            error.response?.data?.message || "Failed to add the item to the cart."
-            );
-          }
-        }
 
 
     const uploadMessage = async (data) => {
@@ -581,18 +322,6 @@ const ApiComponent = () => {
         }
 
 
-    const uploadACamp = async (data) => {
-      try {
-        // console.log(data);
-        const response = await api.post("/upload-a-camp", data);
-        return response.data;
-        } catch (error) {
-          console.error("Error adding the item to the cart:", error.message);
-          throw new Error(
-            error.response?.data?.message || "Failed to add the item to the cart."
-            );
-          }
-        }
 
 
     const uploadPhotos = async (data) => {
@@ -610,122 +339,6 @@ const ApiComponent = () => {
 
 
 
-    const uploadArticle = async (data) => {
-      try {
-        // console.log(data);
-        const response = await api.post("/upload-article", data);
-        return response.data;
-        } catch (error) {
-          console.error("Error adding the item to the cart:", error.message);
-          throw new Error(
-            error.response?.data?.message || "Failed to add the item to the cart."
-            );
-          }
-        }
-
-
-
-    const getArticle = async () => {
-      try {
-      
-        const response = await api.get("/get-article");
-        return response.data;
-        } catch (error) {
-          console.error("Error adding the item to the cart:", error.message);
-          throw new Error(
-            error.response?.data?.message || "Failed to add the item to the cart."
-            );
-          }
-        }
-
-
-
-    const createPaymentIntent = async (totalPrice) => {
-      try {
-        console.log(totalPrice);
-        const data = {
-          totalPrice: totalPrice
-        }
-        const response = await api.post('/create-payment-intent', { totalPrice }, {
-          headers: {
-            'Content-Type': 'application/json',
-          },})
-
-        return response.data;
-        } catch (error) {
-          console.error("Error adding the item to the cart:", error.message);
-          throw new Error(
-            error.response?.data?.message || "Failed to add the item to the cart."
-            );
-          }
-        }
-
-
-
-
-  const  postPaymentInfo =  async (payment) => {
-    try {
-   
-      console.log(payment)
-      const response = await api.post('/payments', payment)
-
-      // return true;
-      return response.data;
-      } catch (error) {
-        console.error("Error adding the item to the cart:", error.message);
-        throw new Error(
-          error.response?.data?.message || "Failed to add the item to the cart."
-          );
-        }
-      }
-
-  const  postReview =  async (review) => {
-    try {
-   
-      // console.log(review)
-      const response = await api.post('/reviews', review)
-      console.log(response);
-      // return true;
-      return response.data;
-      } catch (error) {
-        console.error("Error adding the item to the cart:", error.message);
-        throw new Error(
-          error.response?.data?.message || "Failed to add the item to the cart."
-          );
-        }
-      }
-
-
-      //______________PaymentHistory.jsx
-
-      const getPaymentHistory = async (email)=>{
-        try {
-  
-          console.log(email);
-          const response = await api.get(`/payment-history/${email}`);
-          return handleResponse(response);
-        } catch (error) {
-          console.error("Error fetching volunteer requests:", error.message);
-        throw new Error(
-          error.response?.data?.message || "Failed to fetch requests"
-        );
-        }
-      }
-    
-      const getAllPaymentHistory = async ()=>{
-        try {
-  
-       
-          const response = await api.get(`/all-payment-history`);
-          return handleResponse(response);
-        } catch (error) {
-          console.error("Error fetching volunteer requests:", error.message);
-        throw new Error(
-          error.response?.data?.message || "Failed to fetch requests"
-        );
-        }
-      }
-    
 
 
   // Return the methods and logic for usage in components
@@ -733,15 +346,7 @@ const ApiComponent = () => {
     jwtTokenValidation,
     logoutRoute,
 
-    getMenuData,
-    getReviews,
-
-    addToCart,
-    getCart,
-    
-    deleteFromCart,
-
-    createUser,
+   
 
     getAllUsers,
     deleteUser,
@@ -749,34 +354,15 @@ const ApiComponent = () => {
 
     verifyAdmin,
 
-    uploadMenu,
-    
-    deleteMenuItem,
-    updateMenuItem,
-    
-    createPaymentIntent,
-    postPaymentInfo,
+ 
 
-    getPaymentHistory,
-
-    adminStats,
-
-    postReview,
-
-
-    // start new
-    uploadACamp,
-    getCampData,
-    updateCampItem,
-    deleteCampItem,
-    joinToCamp,
-    getRegisterCamp,
-    deleteFromJoinCamp,
     getSingleUser,
     updateUser,
-    getJoinCamp,
-    updateConfirmationStatus ,
-    getAllPaymentHistory,
+
+
+  
+
+
     uploadMessage,
     getMessage,
     uploadReplyMessage,
@@ -785,8 +371,7 @@ const ApiComponent = () => {
     deleteMessage,
     uploadPhotos,
     getPhotos,
-    uploadArticle,
-    getArticle,
+
 
 
 

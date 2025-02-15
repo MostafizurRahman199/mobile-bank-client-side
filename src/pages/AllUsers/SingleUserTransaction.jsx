@@ -14,7 +14,7 @@ const SingleUserTransaction = () => {
   const { data: transactions, isLoading, isError } = useQuery({
     queryKey: ["transactions", email],
     queryFn: async () => {
-      const res = await api.get(`/transactions?email=${email}`);
+      const res = await api.get(`/transactions?phone=${email}`);
       // return res.data;
       return res.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)); 
     },

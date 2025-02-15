@@ -9,15 +9,19 @@ import Loading from "../../components/Loading/Loading";
 import ErrorPage from "../../components/Error.jsx/ErrorPage";
 
 const Transactions = () => {
+
+  
   const { user } = useFirebaseAuth();
   const api = useAxiosSecure();
   const email = user?.email;
+  const {data} = useGetUser();
+  const phone = data?.phone;
 
   // Fetch Transactions using TanStack Query
   const { data: transactions, isLoading, isError, refetch } = useQuery({
     queryKey: ["transactions", email],
     queryFn: async () => {
-      const res = await api.get(`/transactions?email=${email}`);
+      const res = await api.get(`/transactions?phone=${phone}`);
       // return res.data;
       return res.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)); 
     },

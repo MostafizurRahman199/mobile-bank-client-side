@@ -1,40 +1,3 @@
-// import React from 'react'
-// import ApiComponent from '../../API/ApiComponent';
-// import { useFirebaseAuth } from '../../hooks/useAuth';
-// import { useQuery } from '@tanstack/react-query';
-
-// const ReplyMessage = () => {
-
-
-//     const { getReplyMessage} = ApiComponent();
-//     const { user } = useFirebaseAuth();
-
-//     const email = user?.email;
-
-//   const { data , isLoading, refetch } = useQuery({
-//       queryKey: ["getReplyMessage", email],
-//       queryFn: () => getReplyMessage(email),
-//       enabled: !!email,
-//     });
-
-
-//     console.log(data);
-//     // dataformat
-//     // {
-//     //     "_id": "6789096fe53ca17d874da8ce",
-//     //     "userMessage": "I am interested join a camp. Cloud you give me discount ?",
-//     //     "email": "mostafizurrahmanofficial2025@gmail.com",
-//     //     "createdAt": "2025-01-16T13:28:15.913Z",
-//     //     "messageId": "6788f9e95b4b53084496643a",
-//     //     "adminMessage": "Sorry Sir, There is no discount in any camps."
-//     // }
-
-//   return (
-//     <div>ReplyMessage</div>
-//   )
-// }
-
-// export default ReplyMessage
 
 
 
@@ -47,6 +10,7 @@ import Contact from "../Contact/Contact";
 import Swal from "sweetalert2";
 import { useDarkMode } from "../../Context/DarkModeContext";
 import NotFound from "../../components/NotFound/NotFound";
+import useGetUser from "../../hooks/useGetUser";
 
 const ReplyMessage = () => {
 
@@ -54,6 +18,9 @@ const ReplyMessage = () => {
   const { getReplyMessage, deleteReplyMessage } = ApiComponent();
   const { user } = useFirebaseAuth();
   const email = user?.email;
+
+  const {data:userFromDb} = useGetUser();
+  const phone = userFromDb?.phone;
 
   const { data, isLoading, refetch } = useQuery({
     queryKey: ["getReplyMessage", email],

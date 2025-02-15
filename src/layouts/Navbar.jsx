@@ -21,10 +21,11 @@ import { GrGallery } from "react-icons/gr";
 import { FiMessageCircle } from "react-icons/fi";
 import { MdCampaign } from "react-icons/md";
 import { RiArticleLine } from "react-icons/ri";
-import medicalLogo from "../../public/beHealthy.png";
+import logo from "../../public/mobile_banking.png";
 import { MdOutlineSupportAgent } from "react-icons/md";
 
 import { RxDashboard } from "react-icons/rx";
+import useGetUser from '../hooks/useGetUser';
 
 const Navbar = () => {
 
@@ -35,6 +36,7 @@ const Navbar = () => {
   const [activeLink, setActiveLink] = React.useState(location.pathname);
   const { user, logOut, loading } = useFirebaseAuth();
   const {isAdmin} = useUserRole();
+  const {data} = useGetUser();
   const navigate = useNavigate();
   const {darkMode} = useDarkMode()
 
@@ -118,7 +120,7 @@ const Navbar = () => {
       await logOut();
    
       // toast.success('Logout successful!');
-      navigate('/');
+      navigate('/login');
      
     } catch (error) {
       console.error('Logout error:', error);
@@ -193,13 +195,13 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
        
           <div className="flex flex-shrink-0 items-center  gap-1 sm:gap-4">
-            <Link to="/" className="flex items-center  space-x-1">
+            <Link to="/homePage" className="flex items-center  space-x-1">
              
              
               <span className="new_heading_font text-3xl sm:text-3xl md:text-xl lg:text-3xl text-md font-bold bg-gradient-to-r from-white to-[#2b2557] bg-clip-text text-transparent truncate">
                 <div className='flex flex-wrap gap-2 items-center'>
                   <div>
-                  <img src={medicalLogo} className='w-40 h-14' alt="" />
+                  <img src={logo} className='w-40 h-14' alt="" />
                   </div>
                  
                 </div>
@@ -219,32 +221,15 @@ const Navbar = () => {
          <div className='flex items-center gap-4'>
          <div className="hidden md:flex items-center space-x-2 lg:space-x-4">
           
-          <Link to="/" className={getLinkStyle('/')} onClick={() => setActiveLink('/')}>
+          <Link to="/homePage" className={getLinkStyle('/homePage')} onClick={() => setActiveLink('/')}>
             <FaHome className="lg:inline-block mr-1" /> Home
           </Link>
           
         
-          <Link to="/available-camps" className={getLinkStyle('/available-camps')} onClick={() => setActiveLink('/available-camps')}>
-         
-            <MdCampaign  className="lg:inline-block mr-1"/>
-             Available Camps
-          </Link>
-        
-          <Link to="/gallery" className={getLinkStyle('/gallery')} onClick={() => setActiveLink('/gallery')}>
-        
-          <GrGallery  className="lg:inline-block mr-1"/>
-             Gallery
-          </Link>
 
-
-          <Link to="/article" className={getLinkStyle('/article')} onClick={() => setActiveLink('/article')}>
-        
-          <RiArticleLine  className="lg:inline-block mr-1"/>
-             Article
-          </Link>
 
         {
-          user && isAdmin && <>
+          user && data?.accountType == "Admin" && <>
              <Link to="/get-message" className={getLinkStyle('/get-message')} onClick={() => setActiveLink('/get-message')}>
            
           <FiMessageCircle className="lg:inline-block mr-1" />
@@ -253,7 +238,7 @@ const Navbar = () => {
           </>
         }
         {
-          user && !isAdmin && <>
+          user && data?.accountType !== "Admin" && <>
              <Link to="/get-reply-message" className={getLinkStyle('/get-reply-message')} onClick={() => setActiveLink('/get-reply-message')}>
              <FiMessageCircle className="lg:inline-block mr-1" />
              Message
@@ -279,7 +264,7 @@ const Navbar = () => {
           }
 
    
-          <a
+          {/* <a
           data-tooltip-id="my-tooltip"
           data-tooltip-content="Change Mode"
           data-tooltip-place="top"
@@ -287,7 +272,7 @@ const Navbar = () => {
           <DarkModeToggle></DarkModeToggle>
 
         </a>
-        <ReactTooltip id="my-tooltip">This is a tooltip</ReactTooltip>
+        <ReactTooltip id="my-tooltip">This is a tooltip</ReactTooltip> */}
 
         </div>
 
@@ -330,24 +315,19 @@ const Navbar = () => {
           <span>{user.displayName || "User"}</span>
         </li>
 
-        {/* Dashboard links */}
-        {user && isAdmin && (
-          <li className={`py-2 px-4 rounded-lg ${darkMode ? 'text-white bg-black hover:bg-gray-800' : 'text-white hover:bg-[#5544d9]'}`}>
-            <Link to="/dashboard/admin-home" className="block">
-              Dashboard
-            </Link>
-          </li>
-        )}
-
-        {user && !isAdmin && (
-          <li className={`py-2 px-4 rounded-lg ${darkMode ? 'text-white bg-black hover:bg-gray-800' : 'text-white hover:bg-[#5544d9]'}`}>
-            <Link to="/dashboard/analytics" className="block">
-              Dashboard
-            </Link>
-          </li>
-        )}
+      
 
         {/* Logout Button */}
+       <Link to="/profile">
+       <li className={`py-2 px-4 rounded-lg cursor-pointer ${darkMode ? 'text-white bg-black hover:bg-gray-800' : 'text-white hover:bg-[#5544d9]'}`}>
+          <p  className="w-full text-left text-white rounded-lg ">
+            Profile
+          </p>
+        </li>
+       </Link>
+        
+
+
         <li className={`py-2 px-4 rounded-lg ${darkMode ? 'text-white bg-black hover:bg-gray-800' : 'text-white hover:bg-[#5544d9]'}`}>
           <button onClick={handleLogout} className="w-full text-left text-white rounded-lg">
             Logout
@@ -404,8 +384,8 @@ const Navbar = () => {
         { user && <div className="flex justify-center"><ProfileImage user={user} /></div>} 
 
           <Link 
-            to="/" 
-            className={`block ${getLinkStyle('/')}`}
+            to="/homePage" 
+            className={`block ${getLinkStyle('/homePage')}`}
             onClick={() => {
               setActiveLink('/');
               setIsMobileMenuOpen(false);
@@ -416,76 +396,10 @@ const Navbar = () => {
            
           </Link>
 
+            
          
 
 
-
-          <Link 
-            to="/available-camps" 
-            className={`block ${getLinkStyle('/available-camps')}`}
-            onClick={() => {
-              setActiveLink('/available-camps');
-              setIsMobileMenuOpen(false);
-            }}
-          >
-             <MdCampaign className="inline-block mr-1" /> Available Camps
-          </Link>
-
-
-          <Link 
-            to="/gallery" 
-            className={`block ${getLinkStyle('/gallery')}`}
-            onClick={() => {
-              setActiveLink('/gallery');
-              setIsMobileMenuOpen(false);
-            }}
-          >
-             <GrGallery className="inline-block mr-1" />Gallery
-          </Link>
-
-
-          <Link 
-            to="/article" 
-            className={`block ${getLinkStyle('/article')}`}
-            onClick={() => {
-              setActiveLink('/article');
-              setIsMobileMenuOpen(false);
-            }}
-          >
-             <RiArticleLine className="inline-block mr-1" />Article
-          </Link>
-
-
-        
-         
-
-       { user && isAdmin && <>
-         <Link 
-            to="/dashboard/admin-home" 
-            className={`block ${getLinkStyle('/dashboard/admin-home')}`}
-            onClick={() => {
-              setActiveLink('/dashboard/admin-home');
-              setIsMobileMenuOpen(false);
-            }}
-          >
-        
-            <RxDashboard className="inline-block mr-1" />Dashboard
-          </Link>
-        </> }
-
-
-       { user && !isAdmin && <>
-         <Link 
-            to="/dashboard/analytics" 
-            className={`block ${getLinkStyle('/dashboard/analytics')}`}
-            onClick={() => {
-              setActiveLink('/dashboard/analytics');
-              setIsMobileMenuOpen(false);
-            }}
-          >
-            <RxDashboard className="inline-block mr-1" />Dashboard
-          </Link>
-        </> }
 
 
        { user && isAdmin && <>
